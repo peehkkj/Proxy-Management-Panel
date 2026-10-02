@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wandeath VIP — Elite Proxies & Digital Solutions</title>
+    <meta name="description" content="Wandeath VIP - Painel de controle de proxies residenciais.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.321.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="style.css?v=1.1">
+</head>
+
+<body>
+    <!-- Background Blur Blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+    <div id="mouse-glow"></div>
+
+    <!-- LOGIN SCREEN -->
+    <div class="login-overlay" id="login-overlay">
+        <div class="login-card">
+            <div class="login-brand">
+                <img src="logo.png" alt="Wandeath VIP" class="login-logo">
+            </div>
+            <h2 class="login-title">Acesso Restrito</h2>
+            <p class="login-subtitle">Faça login para acessar o painel</p>
+            <form id="login-form" autocomplete="off">
+                <div class="form-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required>
+                </div>
+                <div class="login-error hidden" id="login-error">
+                    <i data-lucide="alert-circle"></i> Credenciais inválidas
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" id="btn-login">
+                    <i data-lucide="log-in"></i> Entrar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- APP -->
+    <div class="app-wrap hidden" id="app-wrap">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo-wrap">
+                    <div class="brand-logo-glow"></div>
+                    <img src="logo.png" alt="Wandeath VIP" class="sidebar-logo">
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard" id="nav-dashboard">
+                    <i data-lucide="layout-dashboard"></i><span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-section="clients" id="nav-clients">
+                    <i data-lucide="network"></i><span>Proxies</span>
+                </a>
+                <a href="#" class="nav-item" data-section="create" id="nav-create">
+                    <i data-lucide="plus-circle"></i><span>Nova Proxy</span>
+                </a>
+                <div class="nav-divider"></div>
+                <a href="#" class="nav-item" data-section="admins" id="nav-admins">
+                    <i data-lucide="user-cog"></i><span>Admins</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="server-status" id="server-status">
+                    <span class="status-dot"></span>
+                    <span>API Online</span>
+                </div>
+                <div class="sidebar-version">v1.0 — wandeath.com</div>
+                <button class="btn-logout" id="btn-logout">
+                    <i data-lucide="log-out"></i> Sair
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <button class="menu-toggle" id="menu-toggle"><i data-lucide="menu"></i></button>
+                <h1 class="page-title" id="page-title">Dashboard</h1>
+                <div class="topbar-actions">
+                    <span class="topbar-tag"><i data-lucide="shield"></i> Elite Proxy SaaS</span>
+                    <button class="btn-refresh" id="btn-refresh-all" title="Atualizar dados">
+                        <i data-lucide="refresh-cw"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <section class="section active" id="section-dashboard">
+                <div class="welcome-banner">
+                    <div class="welcome-text">
+                        <h2>Bem-vindo ao <span class="gradient-text">Wandeath VIP</span></h2>
+                        <p>Gerencie seus proxies residenciais com controle total de tráfego.</p>
+                    </div>
+                    <div class="welcome-badges">
+                        <span class="wb"><i data-lucide="zap"></i> Squid Engine</span>
+                        <span class="wb"><i data-lucide="globe"></i> Rayobyte IPs</span>
+                        <span class="wb"><i data-lucide="lock"></i> HTTPS</span>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i data-lucide="users"></i></div>
+                        <div class="stat-info"><span class="stat-value" id="val-total">0</span><span
+                                class="stat-label">Total Proxies</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i data-lucide="check-circle"></i></div>
+                        <div class="stat-info"><span class="stat-value" id="val-active">0</span><span
+                                class="stat-label">Ativos</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red"><i data-lucide="ban"></i></div>
+                        <div class="stat-info"><span class="stat-value" id="val-blocked">0</span><span
+                                class="stat-label">Bloqueados</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple"><i data-lucide="database"></i></div>
+                        <div class="stat-info"><span class="stat-value" id="val-gb">0 GB</span><span
+                                class="stat-label">GB Consumidos</span></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i data-lucide="list"></i> Proxies em Uso</h2>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table" id="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Usuário</th>
+                                    <th>Plano</th>
+                                    <th>Consumo</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Proxies List -->
+            <section class="section" id="section-clients">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i data-lucide="network"></i> Todas as Proxies</h2>
+                        <button class="btn btn-sm" id="btn-refresh-clients"><i data-lucide="refresh-cw"></i>
+                            Atualizar</button>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table" id="clients-table">
+                            <thead>
+                                <tr>
+                                    <th>Usuário</th>
+                                    <th>Plano</th>
+                                    <th>Limite</th>
+                                    <th>Usado</th>
+                                    <th>Progresso</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clients-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Create Proxy -->
+            <section class="section" id="section-create">
+                <div class="card form-card">
+                    <div class="card-header">
+                        <h2><i data-lucide="plus-circle"></i> Criar Nova Proxy</h2>
+                    </div>
+
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="single">Única</button>
+                        <button class="tab-btn" data-tab="bulk">Em Massa</button>
+                    </div>
+
+                    <div id="tab-single" class="tab-content active">
+                        <form id="create-form" autocomplete="off">
+                            <div class="form-group">
+                                <label for="input-user">Usuário</label>
+                                <input type="text" id="input-user" placeholder="ex: cliente1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-pass">Senha</label>
+                                <div class="input-icon-wrap">
+                                    <input type="text" id="input-pass" placeholder="Senha do proxy" required>
+                                    <button type="button" class="btn-gen-pass" id="btn-gen-pass" title="Gerar senha"><i
+                                            data-lucide="key"></i></button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-plan">Plano</label>
+                                <select id="input-plan">
+                                    <option value="">Selecione o plano...</option>
+                                    <option value="1gb">⚡ 1 GB</option>
+                                    <option value="3gb">🔥 3 GB</option>
+                                    <option value="5gb">💎 5 GB</option>
+                                    <option value="10gb">🚀 10 GB</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-proto">Protocolo Preferido</label>
+                                <select id="input-proto">
+                                    <option value="3128">🌐 HTTP (Porta 3128)</option>
+                                    <option value="1080">🧦 SOCKS5 (Porta 1080)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" id="btn-create">
+                                <i data-lucide="plus"></i> Criar Proxy
+                            </button>
+                        </form>
+                        <div class="form-result hidden" id="create-result"></div>
+                    </div>
+
+                    <div id="tab-bulk" class="tab-content">
+                        <div class="form-group">
+                            <label for="bulk-qty">Quantidade</label>
+                            <input type="number" id="bulk-qty" value="5" min="1" max="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="bulk-plan">Plano para todas</label>
+                            <select id="bulk-plan">
+                                <option value="1gb">⚡ 1 GB</option>
+                                <option value="3gb">🔥 3 GB</option>
+                                <option value="5gb">💎 5 GB</option>
+                                <option value="10gb">🚀 10 GB</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bulk-proto">Protocolo</label>
+                            <select id="bulk-proto">
+                                <option value="3128">🌐 HTTP (3128)</option>
+                                <option value="1080">🧦 SOCKS5 (1080)</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" id="btn-bulk-create">
+                            <i data-lucide="zap"></i> Gerar em Massa
+                        </button>
+
+                        <div id="bulk-result-wrap" class="hidden" style="margin-top: 20px;">
+                            <div
+                                style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                <label>Resultado</label>
+                                <button class="btn btn-sm btn-primary" id="btn-copy-bulk"><i data-lucide="copy"></i>
+                                    Copiar Lista</button>
+                            </div>
+                            <div class="export-box">
+                                <textarea id="bulk-textarea" readonly
+                                    style="height: 150px; font-family: monospace; font-size: 0.85rem;"></textarea>
+                            </div>
+                            <div id="bulk-progress" style="margin-top:10px; font-size:0.85rem; color:var(--text-sec)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admins -->
+            <section class="section" id="section-admins">
+                <div class="card form-card">
+                    <div class="card-header">
+                        <h2><i data-lucide="user-cog"></i> Gerenciar Admins</h2>
+                    </div>
+                    <div class="admin-list" id="admin-list">
+                        <!-- populated by JS -->
+                    </div>
+                </div>
+                <div class="card form-card" style="margin-top:20px">
+                    <div class="card-header">
+                        <h2><i data-lucide="user-plus"></i> Novo Admin</h2>
+                    </div>
+                    <form id="admin-form" autocomplete="off">
+                        <div class="form-group">
+                            <label for="admin-email">E-mail</label>
+                            <input type="email" id="admin-email" placeholder="email@exemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="admin-pass">Senha</label>
+                            <input type="password" id="admin-pass" placeholder="Senha de acesso" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" id="btn-add-admin">
+                            <i data-lucide="user-plus"></i> Registrar Admin
+                        </button>
+                    </form>
+                    <div class="form-result hidden" id="admin-result"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay hidden" id="modal-overlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Detalhes</h3>
+                <button class="modal-close" id="modal-close"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+    <script src="app.js?v=1.1"></script>
+</body>
+
+</html>
