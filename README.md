@@ -1,224 +1,374 @@
-# Proxy Management Panel
-
-Um painel de controle avançado (SaaS) para gerenciamento de proxies residenciais, projetado para oferecer controle sobre o tráfego, consumo e gerenciamento de clientes.
-
-## Sobre o projeto
-
-O **Proxy Management Panel** é uma solução completa para administração de proxies, integrando um dashboard moderno no frontend com uma infraestrutura de backend.
-
-O objetivo do projeto é facilitar a criação, monitoramento e gerenciamento de proxies HTTP e SOCKS5, permitindo que administradores distribuam e controlem pacotes de dados para seus clientes de forma eficiente.
-
-O sistema oferece suporte à criação em massa, monitoramento de consumo e gerenciamento de múltiplos administradores.
-
-## Tecnologias utilizadas
-
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=html,css,js,flask,nginx,bash" />
+# Facial Symmetry Analysis
+
+**Sistema de análise de simetria e expressão facial em tempo real utilizando visão computacional e câmeras OAK-D.**
+
+<br>
+
+![Python](https://img.shields.io/badge/PYTHON-0A0A0A?style=for-the-badge\&logo=python\&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OPENCV-0A0A0A?style=for-the-badge\&logo=opencv\&logoColor=white)
+![Keras](https://img.shields.io/badge/KERAS-0A0A0A?style=for-the-badge\&logo=keras\&logoColor=white)
+![MediaPipe](https://img.shields.io/badge/MEDIAPIPE-0A0A0A?style=for-the-badge\&logo=google\&logoColor=white)
+![NumPy](https://img.shields.io/badge/NUMPY-0A0A0A?style=for-the-badge\&logo=numpy\&logoColor=white)
+![Pandas](https://img.shields.io/badge/PANDAS-0A0A0A?style=for-the-badge\&logo=pandas\&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/SCIKIT--LEARN-0A0A0A?style=for-the-badge\&logo=scikit-learn\&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/MATPLOTLIB-0A0A0A?style=for-the-badge\&logo=matplotlib\&logoColor=white)
+
+![PyInstaller](https://img.shields.io/badge/PYINSTALLER-0A0A0A?style=for-the-badge\&logo=python\&logoColor=white)
+![Linux](https://img.shields.io/badge/LINUX-0A0A0A?style=for-the-badge\&logo=linux\&logoColor=white)
+![Git](https://img.shields.io/badge/GIT-0A0A0A?style=for-the-badge\&logo=git\&logoColor=white)
+![GitHub](https://img.shields.io/badge/GITHUB-0A0A0A?style=for-the-badge\&logo=github\&logoColor=white)
 
 </div>
 
-### Infraestrutura
+---
 
-* **HTML5** — Estrutura da interface
-* **CSS3** — Estilização e responsividade
-* **JavaScript** — Lógica do frontend e integração com API REST
-* **Flask** — API e backend
-* **Nginx** — Proxy reverso e servidor web
-* **Bash** — Scripts de automação e implantação
-* **Squid Proxy** — Engine para proxies HTTP
-* **MicroSocks** — Engine para proxies SOCKS5
-* **Lucide Icons** — Ícones da interface
-* **Plus Jakarta Sans** — Tipografia da interface
+## Sobre o Projeto
+
+**Facial Symmetry Analysis** é uma aplicação desenvolvida em Python para detecção facial, análise de simetria e reconhecimento de expressões faciais em tempo real.
+
+O projeto utiliza técnicas de **Computer Vision, Machine Learning e Deep Learning** para processar imagens capturadas por câmeras OAK-D da **Luxonis**, permitindo identificar características faciais, gerar uma malha facial e analisar relações geométricas entre diferentes regiões do rosto.
+
+A aplicação possui uma interface gráfica desenvolvida com **PySimpleGUI** e também pode ser distribuída como um executável standalone para Windows utilizando **PyInstaller**.
+
+## Tecnologias
+
+### Computer Vision
+
+![Python](https://img.shields.io/badge/PYTHON-0A0A0A?style=for-the-badge\&logo=python\&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OPENCV-0A0A0A?style=for-the-badge\&logo=opencv\&logoColor=white)
+![MediaPipe](https://img.shields.io/badge/MEDIAPIPE-0A0A0A?style=for-the-badge\&logo=google\&logoColor=white)
+
+* **OpenCV** — Processamento e análise de imagens.
+* **MediaPipe** — Detecção e mapeamento de landmarks faciais.
+* **DepthAI** — Integração com câmeras OAK-D.
+* **OpenVINO** — Inferência de modelos de visão computacional.
+* **blobconverter** — Conversão e preparação de modelos para dispositivos compatíveis.
+
+### Machine Learning e Deep Learning
+
+![Keras](https://img.shields.io/badge/KERAS-0A0A0A?style=for-the-badge\&logo=keras\&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/SCIKIT--LEARN-0A0A0A?style=for-the-badge\&logo=scikit-learn\&logoColor=white)
+
+* **Keras** — Construção e execução de modelos de Deep Learning.
+* **Scikit-learn** — Processamento e análise de dados.
+* **FER** — Facial Expression Recognition.
+
+### Dados e processamento
+
+![NumPy](https://img.shields.io/badge/NUMPY-0A0A0A?style=for-the-badge\&logo=numpy\&logoColor=white)
+![Pandas](https://img.shields.io/badge/PANDAS-0A0A0A?style=for-the-badge\&logo=pandas\&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/MATPLOTLIB-0A0A0A?style=for-the-badge\&logo=matplotlib\&logoColor=white)
+
+* **NumPy** — Computação numérica e operações vetoriais.
+* **Pandas** — Manipulação e análise de dados.
+* **Matplotlib** — Visualização de dados.
+
+### Interface e distribuição
+
+* **PySimpleGUI** — Interface gráfica.
+* **PyInstaller** — Empacotamento da aplicação em executável standalone.
 
 ## Funcionalidades
 
-* **Dashboard Interativo** — Visualização de estatísticas de uso, clientes ativos, bloqueados e consumo de dados.
-* **Autenticação Segura** — Sistema de login restrito com suporte ao gerenciamento de múltiplos administradores.
-* **Múltiplos Protocolos** — Suporte à geração de proxies HTTP e SOCKS5.
-* **Geração em Massa** — Criação rápida de múltiplos proxies simultaneamente.
-* **Gestão de Consumo** — Controle de limites de banda, barra de progresso e possibilidade de reset do consumo.
-* **Gerenciamento de Clientes** — Visualização de detalhes, bloqueio de tráfego e exclusão de usuários.
-* **Deploy Automatizado** — Scripts para instalação e configuração de Nginx, Certbot, SSL e MicroSocks.
-* **Arquitetura com Proxy Reverso** — Comunicação entre frontend e backend através do Nginx.
+### Captura em tempo real
 
-## Estrutura do projeto
+Integração com câmeras **OAK-D da Luxonis** através da biblioteca DepthAI para captura e processamento de imagens em tempo real.
+
+### Detecção facial
+
+Identificação de rostos utilizando modelos de visão computacional e processamento através de OpenVINO.
+
+### Facial Landmark Detection
+
+Mapeamento de pontos de referência faciais utilizando MediaPipe para identificar regiões como:
 
 ```text
-Proxy Management Panel/
-│
-├── index.html
-├── style.css
-├── app.js
-│
-├── deploy.sh
-├── install_socks5.sh
-├── block_sites.sh
-├── upload.sh
-├── upload_index.txt
-│
-└── documentation.md
+Olhos
+Sobrancelhas
+Nariz
+Boca
+Mandíbula
+Contorno facial
 ```
 
-### Principais arquivos
+### Análise de simetria
 
-* `index.html` — Estrutura principal do dashboard e tela de login.
-* `style.css` — Estilização completa da aplicação, incluindo o tema Dark Mode.
-* `app.js` — Lógica do frontend, gerenciamento de estado, autenticação e integração com a API REST.
-* `deploy.sh` — Script de implantação automatizada do Nginx, frontend e SSL.
-* `install_socks5.sh` — Instalação e configuração do serviço MicroSocks via systemd.
-* `block_sites.sh` — Script destinado à restrição e bloqueio de sites.
-* `upload.sh` — Script auxiliar para envio de arquivos ao servidor.
-* `upload_index.txt` — Arquivo auxiliar relacionado ao processo de upload.
-* `documentation.md` — Documentação técnica da infraestrutura, arquitetura de rede e endpoints da API.
+A aplicação utiliza os landmarks faciais para criar relações geométricas entre os dois lados do rosto.
+
+O sistema pode analisar:
+
+* Eixo central facial
+* Distância entre landmarks
+* Relações geométricas
+* Diferenças entre regiões correspondentes
+* Simetria relativa entre os lados do rosto
+* Malha facial 3D
+
+### Reconhecimento de expressões
+
+Utilização de modelos de reconhecimento facial para classificação de expressões detectadas durante a captura de vídeo.
+
+### Análise de dados
+
+Os dados processados podem ser manipulados e analisados utilizando:
+
+```text
+NumPy
+Pandas
+Scikit-learn
+Matplotlib
+```
+
+### Interface gráfica
+
+Interface desenvolvida em **PySimpleGUI**, permitindo visualizar o processamento da câmera, landmarks faciais e informações relacionadas à análise.
+
+### Executável standalone
+
+A aplicação pode ser empacotada utilizando **PyInstaller**, permitindo executar o sistema em máquinas Windows sem a necessidade de configurar manualmente o ambiente Python.
 
 ## Arquitetura
 
 ```text
                     ┌─────────────────────┐
-                    │       Cliente       │
+                    │      OAK-D Camera   │
+                    │       Luxonis       │
                     └──────────┬──────────┘
                                │
                                ▼
                     ┌─────────────────────┐
-                    │       Nginx         │
-                    │   Proxy Reverso     │
-                    └───────┬───────┬─────┘
-                            │       │
-                 ┌──────────┘       └──────────┐
-                 ▼                             ▼
-        ┌─────────────────┐           ┌─────────────────┐
-        │    Frontend     │           │    Flask API    │
-        │   HTML/CSS/JS   │           │     Backend     │
-        └─────────────────┘           └────────┬────────┘
-                                               │
-                              ┌────────────────┼────────────────┐
-                              ▼                ▼                ▼
-                         ┌─────────┐      ┌──────────┐     ┌─────────┐
-                         │  Squid  │      │ MicroSocks│     │Database │
-                         │  HTTP   │      │  SOCKS5   │     │         │
-                         └─────────┘      └──────────┘     └─────────┘
+                    │      DepthAI        │
+                    │   Camera Pipeline   │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │    Face Detection   │
+                    │      OpenVINO       │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   Facial Landmarks  │
+                    │     MediaPipe       │
+                    └──────────┬──────────┘
+                               │
+                 ┌─────────────┴─────────────┐
+                 ▼                           ▼
+        ┌─────────────────┐         ┌─────────────────┐
+        │ Symmetry        │         │ Expression      │
+        │ Analysis        │         │ Recognition     │
+        └────────┬────────┘         └────────┬────────┘
+                 │                           │
+                 └─────────────┬─────────────┘
+                               ▼
+                    ┌─────────────────────┐
+                    │     GUI / Output    │
+                    │     PySimpleGUI     │
+                    └─────────────────────┘
 ```
 
-## Instalação e execução
+## Estrutura do Projeto
 
-Para configurar o painel e os serviços de proxy em um servidor Linux Ubuntu/Debian, utilize os scripts de automação incluídos no projeto.
+```text
+FacialSymmetryAnalysis/
+│
+├── Python_scripts_and_spec_file/
+│   ├── FacialExpressionAnalysis.py
+│   └── FacialExpressionAnalysis.spec
+│
+├── for_conversion/
+│   └── requirements.txt
+│
+├── standalone_executable/
+│   └── FacialSymmetryAnalysis.exe
+│
+└── README.md
+```
 
-### 1. Enviar o projeto para o VPS
+### Principais diretórios
+
+**`Python_scripts_and_spec_file/`**
+
+Contém o código-fonte principal da aplicação e os arquivos de configuração utilizados pelo PyInstaller.
+
+**`for_conversion/`**
+
+Contém as dependências necessárias para configurar o ambiente de desenvolvimento.
+
+**`standalone_executable/`**
+
+Contém a versão compilada da aplicação para Windows.
+
+## Instalação
+
+### Requisitos
+
+Para executar a versão de desenvolvimento, recomenda-se:
+
+```text
+Python 3.x
+Windows
+Câmera OAK-D
+USB 3.0
+```
+
+### Clone o repositório
 
 ```bash
-cd /root/dashboard
+git clone https://github.com/SEU_USUARIO/FacialSymmetryAnalysis.git
+cd FacialSymmetryAnalysis
 ```
 
-### 2. Executar o deploy
-
-O script principal configura o Nginx, frontend e SSL:
+### Instale as dependências
 
 ```bash
-bash deploy.sh
+cd for_conversion
+pip install -r requirements.txt
 ```
 
-### 3. Instalar o SOCKS5
-
-Caso seja necessário utilizar o protocolo SOCKS5:
+### Execute a aplicação
 
 ```bash
-bash install_socks5.sh
+python FacialExpressionAnalysis.py
 ```
 
-### 4. Iniciar o backend
+## Executável Windows
 
-Certifique-se de que a API Flask esteja configurada e executando na porta local `5000`, conforme especificado na documentação interna.
+Para utilizar a versão standalone:
+
+```text
+standalone_executable/
+└── FacialSymmetryAnalysis.exe
+```
+
+Execute o arquivo `.exe` após conectar a câmera OAK-D.
+
+A versão standalone foi desenvolvida para reduzir a necessidade de configuração manual do ambiente Python na máquina final.
+
+## Build
+
+Caso sejam realizadas alterações no código-fonte, um novo executável pode ser criado utilizando PyInstaller.
+
+```bash
+cd Python_scripts_and_spec_file
+pyinstaller FacialSymmetryAnalysis.spec
+```
+
+Antes do processo de build, certifique-se de que todos os caminhos utilizados no código e no arquivo `.spec` estejam configurados de acordo com o ambiente atual.
+
+Evite utilizar caminhos absolutos específicos de uma máquina.
 
 ## Configuração
 
-O sistema utiliza uma arquitetura baseada em proxy reverso através do Nginx.
+### Hardware
 
-### API
+O projeto foi desenvolvido originalmente para utilização com câmeras:
 
-A variável `API_BASE`, localizada no arquivo `app.js`, pode ser modificada caso a API esteja hospedada em uma origem diferente.
+**Luxonis OAK-D**
 
-Por padrão, as requisições `/api/` são encaminhadas pelo Nginx para o backend Flask na porta `5000`.
+A câmera é utilizada para captura de imagens e processamento através da pipeline do DepthAI.
 
-### Autenticação
+### Modelos
 
-O sistema possui uma conta administrativa inicial, que pode ser pré-configurada ou criada durante a configuração do backend.
+O sistema utiliza modelos de visão computacional para detecção facial e processamento dos frames.
 
-Novas contas administrativas podem ser gerenciadas através da seção **Admins** do painel.
+Os modelos devem estar corretamente configurados antes da execução.
 
-### Portas
+### Dependências
+
+As principais dependências podem ser encontradas em:
 
 ```text
-80    HTTP
-443   HTTPS
-3128  Squid HTTP Proxy
-1080  SOCKS5 Proxy
+for_conversion/requirements.txt
 ```
 
-A configuração do firewall deve ser realizada de acordo com a infraestrutura utilizada no servidor.
-
-> Nenhuma senha ou token real deve ser armazenado diretamente no frontend ou exposto no repositório. Informações sensíveis devem ser tratadas exclusivamente pelo backend.
-
-## Uso
-
-### Acesso ao painel
-
-Acesse o endereço de produção configurado no servidor.
-
-Na tela de acesso restrito, informe as credenciais administrativas.
-
-### Dashboard
-
-Utilize o dashboard para acompanhar:
-
-* Total de clientes
-* Clientes ativos
-* Clientes bloqueados
-* Consumo de dados
-* Status geral da plataforma
-
-### Proxies
-
-A seção **Proxies** permite:
-
-* Visualizar clientes
-* Consultar consumo
-* Visualizar informações de acesso
-* Bloquear tráfego
-* Excluir usuários
-
-### Nova Proxy
-
-A seção **Nova Proxy** permite gerar novos acessos individualmente ou através do sistema de geração em massa.
-
-Os dados de acesso podem ser apresentados no formato:
+## Fluxo de Processamento
 
 ```text
-proxy.example.com:3128:user:pass
+Camera
+   ↓
+Frame Capture
+   ↓
+Face Detection
+   ↓
+Facial Landmarks
+   ↓
+Geometric Analysis
+   ↓
+Symmetry Calculation
+   ↓
+Expression Recognition
+   ↓
+Data Processing
+   ↓
+Visualization
 ```
 
 ## Screenshots
 
 <div align="center">
 
-<img src="logo.png" alt="Proxy Management Panel Logo" width="200"/>
+Adicione aqui capturas da aplicação em funcionamento.
 
-<br><br>
+<br>
 
-Adicione aqui as capturas de tela do dashboard, tela de login e gerenciamento de proxies.
+Exemplos:
+
+* Interface principal
+* Detecção facial
+* Facial landmarks
+* Malha facial
+* Análise de simetria
+* Reconhecimento de expressões
+* Gráficos e métricas
 
 </div>
 
 ## Roadmap
 
-* [ ] Implementar gráficos de consumo temporal
-* [ ] Adicionar logs de acesso e erros na interface administrativa
-* [ ] Implementar expiração automática de usuários inativos através de CRON
-* [ ] Melhorar sistema de exportação para `.txt` e `.csv`
-* [ ] Implementar monitoramento avançado de infraestrutura
-* [ ] Adicionar métricas históricas de consumo
-* [ ] Melhorar sistema de auditoria administrativa
+* [ ] Melhorar o gerenciamento de diretórios e arquivos de modelos.
+* [ ] Remover caminhos absolutos do código-fonte.
+* [ ] Adicionar suporte para webcams convencionais.
+* [ ] Implementar testes automatizados.
+* [ ] Melhorar a análise geométrica facial.
+* [ ] Implementar métricas detalhadas de simetria.
+* [ ] Adicionar armazenamento histórico das análises.
+* [ ] Criar dashboard para visualização dos resultados.
+* [ ] Melhorar o processamento em tempo real.
+* [ ] Otimizar inferência para diferentes hardwares.
+* [ ] Implementar configuração dinâmica dos modelos.
+
+## Desenvolvimento
+
+O projeto foi desenvolvido utilizando conceitos de:
+
+```text
+Computer Vision
+Facial Landmark Detection
+Machine Learning
+Deep Learning
+Real-Time Image Processing
+Geometric Analysis
+Data Analysis
+Edge AI
+```
 
 ## Autor
 
-Desenvolvido para gerenciamento e administração de infraestrutura de proxies.
+Projeto desenvolvido para pesquisa e experimentação em **visão computacional, análise facial e inteligência artificial**.
+
+Contribuições, issues e pull requests são bem-vindos.
+
+---
+
+<div align="center">
+
+**Facial Symmetry Analysis**
+
+Computer Vision • Machine Learning • Edge AI
+
+</div>
+
